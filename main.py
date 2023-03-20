@@ -40,7 +40,7 @@ def main():
         apr = apr-(community_tax*apr)
 
         print(f'Store number {len(amount)} every {timeframe} seconds')
-        print(f'Current Supply: {round(current_amount/1000000000,3)} FUND')
+        print(f'Current Supply: {round(current_amount/1000000000,3):,} FUND')
         print(f'Calculated yearly inflation: {round(inflation/1000000000,3):,} FUND')
         print(f'Calculated inflation percentage: {round(inflation_percentage*100,3)}%')
         print(f'Calculated APR percentage: {round(apr*100,3)}%\n')
