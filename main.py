@@ -34,7 +34,7 @@ def main():
         current_amount = amount[len(amount)-1]
         staked_supply = float(res['pool']['bonded_tokens'])
         average_diff = diff/len(amount)
-        inflation = (average_diff*(31536000/timeframe)) #31536000 seconds in a day
+        inflation = (average_diff*(31536000/timeframe)) #31536000 seconds in a year
         inflation_percentage = inflation/amount[len(amount)-1]
         apr = (inflation_percentage/(staked_supply/current_amount))
         apr = apr-(community_tax*apr)
