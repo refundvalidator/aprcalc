@@ -20,6 +20,8 @@ to reflect this.
 
 Any outliers in eFUND usage may throw off the calculation(Such as a new BEACON being registered)
 
+Since eFUND usage is variable, results are only a rough estimation
+
 ## Usage
 To use, simply install the needed requirements using:
 ```bash
