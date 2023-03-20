@@ -46,8 +46,8 @@ def main():
         apr = (inflation_percentage/(staked_supply/current_amount))
         apr = apr-(community_tax*apr)
 
-        print(f'Calculation based on the last {round((timeframe*len(amount))/60/60,1)} hours')
         print(f'Store number {len(amount)} every {timeframe} seconds')
+        print(f'Calculation based on the last {round((timeframe*len(amount))/60/60,2)} hours')
         print(f'Current Supply: {round(current_amount/1000000000,3):,} FUND')
         print(f'Calculated yearly inflation: {round(inflation/1000000000,3):,} FUND')
         print(f'Calculated inflation percentage: {round(inflation_percentage*100,3)}%')
