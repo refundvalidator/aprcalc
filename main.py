@@ -9,6 +9,13 @@ url = "https://rest.unification.io/"
 starttime = time.time()
 amount = []
 
+# timeframe(seconds) times store is equal to the length
+# of time(in seconds) the script will retain information for 
+# the average calculation. 
+
+# 86,400 seconds in a day(24hrs) 
+# I.E. 6(timeframe) x 14400(store) = 86,400
+
 timeframe = 6
 store = 14400
 community_tax = 0.02
