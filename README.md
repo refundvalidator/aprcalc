@@ -23,7 +23,7 @@ Any outliers in eFUND usage may throw off the calculation(Such as a new BEACON b
 ## Usage
 To use, simply install the needed requirements using:
 ```bash
-pip install -r requirements.txt
+pip install -r /path/to/requirements.txt
 ```
 and run using
 ```bash
