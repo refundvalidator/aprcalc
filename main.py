@@ -1,6 +1,7 @@
 import json
 import requests
 import time
+import os
 from termcolor import colored as c
 
 url = "https://rest.unification.io/"
@@ -8,6 +9,15 @@ url = "https://rest.unification.io/"
 
 starttime = time.time()
 amount = []
+
+jsonpath = os.environ.get('JSON_PATH')
+
+if jsonpath is None:
+    jsonpath = "./apr.json"
+elif jsonpath[-1] == "/":
+    jsonpath = f"{jsonpath}/apr.json"
+
+
 
 # timeframe(seconds) times store is equal to the length
 # of time(in seconds) the script will retain information for 
@@ -53,4 +63,15 @@ def main():
         print(c('Calculated yearly inflation: ','magenta'),c(f'{round(inflation/1000000000,3):,} FUND','cyan'))
         print(c('Calculated inflation percentage: ','magenta'),c(f'{round(inflation_percentage*100,3)}%','cyan'))
         print(c('Calculated APR percentage: ','magenta'),c(f'{round(apr*100,3)}%\n','cyan'))
+
+        info = {
+                "timeframe_hours" : round((timeframe*len(amount))/60/60,2),
+                "current_supply" : round(current_amount/1000000000,3),
+                "inflation_yearly_amount" : round(inflation/1000000000,3),
+                "inflation_yearly_percentage" : round(inflation_percentage*100,3),
+                "apr_percentage" : round(apr*100,3)
+        }
+        with open(jsonpath, 'w',encoding='utf8') as u:
+            json.dump(info,u,indent=4,ensure_ascii=False)
+
 start()
